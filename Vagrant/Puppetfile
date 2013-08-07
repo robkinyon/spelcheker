@@ -1,0 +1,7 @@
+# Configuration for librarian-puppet.
+
+forge "http://forge.puppetlabs.com"
+
+mod "puppetlabs/apt"
+# This didn't work. Doing things manually for now.
+#mod "puppetlabs/nodejs"
