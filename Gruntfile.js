@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     coffee: {
       'spelcheker': {
         'files': {
+          'lib/app.js': 'lib/**/*.coffee',
         },
       },
       'test': {
@@ -18,6 +19,7 @@ module.exports = function (grunt) {
       'spelcheker': {
         src: [
           'spec/**/*.js',
+          'lib/**/*.js',
           __filename,
         ],
       },
@@ -38,8 +40,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-simple-mocha');
 
-  grunt.registerTask('compile:test', [
-    'coffee:test',
+  grunt.registerTask('compile', [
+    'coffee',
   ]);
 
   grunt.registerTask('lint', [
@@ -47,7 +49,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'compile:test', 'lint', 'simplemocha',
+    'compile', 'lint', 'simplemocha',
   ]);
 
   grunt.registerTask('default', ['test']);
