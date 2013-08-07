@@ -1,6 +1,7 @@
 .*.sw?
 .vagrant
 node_modules
+spec/test.js
 
 lib-cov
 *.seed
