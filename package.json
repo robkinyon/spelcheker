@@ -1,0 +1,23 @@
+{
+  "name": "spelcheker",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robkinyon/spelcheker"
+  },
+  "homepage": "https://github.com/robkinyon/spelcheker",
+  "author": {
+    "name": "Rob Kinyon",
+    "email": "rob.kinyon@gmail.com",
+    "url": "http://streamlined-book.blogspot.com"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-express": "~0.3.2"
+  },
+  "devDependencies": {
+  }
+}

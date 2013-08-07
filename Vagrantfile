@@ -1,5 +1,5 @@
 # -*- mode: ruby -*-
-# vim:ft=ruby;sw=2;
+# vi:ft=ruby;sw=2;
 Vagrant::Config.run do |config|
   config.vm.box_url = 'http://goo.gl/8kWkm'
   config.vm.box = 'precise32'
