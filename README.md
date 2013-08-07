@@ -1,6 +1,40 @@
 # spelcheker #
 
-# Setup
+This provides a REST server that, given a word, will return back either:
+* success that the word is spelled properly
+* failure and suggestions (if possible) for what the word could be
+
+# API #
+
+```GET /``` returns:
+```JSON
+{
+  "success": false,
+  "word": "",
+  "suggestions": []
+}
+```
+
+```GET /<word>```, if the word is spelled properly, returns:
+```JSON
+{
+  "success": true
+  "word": "<word>"
+}
+```
+
+```GET /<word>```, if the word is *not* spelled properly, returns:
+```JSON
+{
+  "success": false,
+  "word": "<word>",
+  "suggestions": [
+    "word1", "word2"
+  ]
+}
+```
+
+# Setup #
 
 To setup your development environment, you will need:
 * VirtualBox
@@ -14,7 +48,7 @@ To setup your development environment, you will need:
 The Vagrantfile in this checkout will do the rest (assuming you have an active
 internet connection).
 
-# Starting work #
+## Starting work ##
 
 Assuming you've installed everything detailed in Setup, then it's just:
 * ```vagrant up```
