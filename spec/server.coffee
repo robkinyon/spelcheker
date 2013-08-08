@@ -12,13 +12,33 @@ describe 'Server', ->
     request(app).get('/')
       .expect(200)
       .expect('Content-Type', 'application/json')
-      .expect(JSON.stringify({success: false, word: "", suggestions: []}))
+      .expect(JSON.stringify
+        success: false
+        word: ""
+        suggestions: []
+      )
       .end(done)
 
-  word = 'hello'
-  it "responds to /#{word}", (done) ->
+  it "responds to /hello", (done) ->
+    word = 'hello'
     request(app).get("/#{word}")
       .expect(200)
       .expect('Content-Type', 'application/json')
-      .expect(JSON.stringify({success: true, word: word, suggestions: []}))
+      .expect(JSON.stringify
+        success: true
+        word: word
+        suggestions: []
+      )
+      .end(done)
+
+  it "responds to /hellop", (done) ->
+    word = 'hellop'
+    request(app).get("/#{word}")
+      .expect(200)
+      .expect('Content-Type', 'application/json')
+      .expect(JSON.stringify
+        success: false
+        word: word
+        suggestions: ['hello']
+      )
       .end(done)
