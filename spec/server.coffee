@@ -14,3 +14,11 @@ describe 'Server', ->
       .expect('Content-Type', 'application/json')
       .expect(JSON.stringify({success: false, word: "", suggestions: []}))
       .end(done)
+
+  word = 'hello'
+  it "responds to /#{word}", (done) ->
+    request(app).get("/#{word}")
+      .expect(200)
+      .expect('Content-Type', 'application/json')
+      .expect(JSON.stringify({success: true, word: word, suggestions: []}))
+      .end(done)
