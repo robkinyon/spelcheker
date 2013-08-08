@@ -6,7 +6,7 @@ app.get '/', (req,res) ->
   res.send JSON.stringify
     success: false
     word: ""
-    suggestions: []
+    suggestion: null
 
 spell = require 'speller'
 fs = require 'fs'
@@ -17,11 +17,13 @@ fs.readFile __dirname + '/../node_modules/speller/bin/big.txt', 'ascii', (err, d
 
 app.get '/:word', (req, res) ->
   word = req.param('word');
-  actual = spell.correct word
+  if word
+    actual = spell.correct word
+
   res.set 'Content-Type', 'application/json'
   res.send JSON.stringify
-    success: actual == word
+    success: word and actual == word
     word: word
-    suggestions: if actual == word then [] else [actual]
+    suggestion: if actual == word then null else actual
 
 module.exports = app

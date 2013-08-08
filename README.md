@@ -11,15 +11,16 @@ This provides a REST server that, given a word, will return back either:
 {
   "success": false,
   "word": "",
-  "suggestions": []
+  "suggestion": null
 }
 ```
 
 ```GET /<word>```, if the word is spelled properly, returns:
 ```JSON
 {
-  "success": true
-  "word": "<word>"
+  "success": true,
+  "word": "<word>",
+  "suggestion": null
 }
 ```
 
@@ -28,9 +29,7 @@ This provides a REST server that, given a word, will return back either:
 {
   "success": false,
   "word": "<word>",
-  "suggestions": [
-    "word1", "word2"
-  ]
+  "suggestion": "word1"
 }
 ```
 

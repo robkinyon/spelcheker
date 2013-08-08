@@ -15,7 +15,7 @@ describe 'Server', ->
       .expect(JSON.stringify
         success: false
         word: ""
-        suggestions: []
+        suggestion: null
       )
       .end(done)
 
@@ -27,7 +27,7 @@ describe 'Server', ->
       .expect(JSON.stringify
         success: true
         word: word
-        suggestions: []
+        suggestion: null
       )
       .end(done)
 
@@ -39,6 +39,6 @@ describe 'Server', ->
       .expect(JSON.stringify
         success: false
         word: word
-        suggestions: ['hello']
+        suggestion: 'hello'
       )
       .end(done)
